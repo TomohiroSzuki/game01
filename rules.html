@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>数当てゲームルール説明</title>
+	<style>
+	body{
+		width: 100%;
+		height: 632px;
+		background-image:linear-gradient(to top right,#0a06dd,#fff,#ff58c4);
+		}
+		p{
+			text-align: center;
+		}
+		h1,h2{
+			margin-top: 15px; 
+			text-align: center;
+		}
+		.setumei{
+			opacity: 0;
+			height: 0;
+			width: 680px;
+			margin: 0 auto;
+			padding: 10px;
+			background: rgba(255,255,255,.4);
+			border: solid 1px #444;
+			border-radius: 10px;
+		}
+		li{
+			line-height: 24px;
+		}
+		span{
+			font-weight: bold;
+			font-size: 18px;
+		}
+		.mainsetu{
+			display: none;
+		}
+		.mainsetu > li{
+			list-style: none;
+		}
+		a{
+			color: #f44;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<h1>数当てゲーム</h1>
+	<!-- <p style="margin:0">(※数当てゲームは食べ物ではありません)</p> -->
+	<h2>～～ルール説明～～</h2>
+	<div class="setumei">	
+		<ul class="mainsetu">
+			<li><span>1．各プレイヤーはそれぞれ４桁の数字を決めます.</span>
+				<ul>
+					<li>0～9までの数字を使い自由に決めてください</li>
+					<li>このとき一度使用した数字は<strong>二度使うことはできません</strong></li>
+					<li>相手プレイヤーにばれないようにしてください</li>
+				</ul>
+			</li>
+			<li><span>2．各プレイヤーの数字が決まったら、対戦回数を決め、ゲームを開始します</span>
+				<ul>
+					<li>ここでいう対戦回数とは、相手の数字を推測し答える回数になります</li>
+					<li>（例）５回戦とすると各プレイヤーは５回、相手の数字を当てるチャンスがあります</li>
+				</ul>
+			</li>
+			<li><span>3．プレイヤー１から交互に相手の数字を推測し答えていきます</span>
+				<ul>
+					<li>◎...数字と桁、ともに合っている数を表します</li>
+					<li>○...答えた数字が秘密の数字に含まれている数を表します</li>
+					<li>×...答えた数字が秘密の数字に含まれていない数を表します</li>
+					<li>（例）秘密の数字「１２３４」、答えた数字「１８２３」だった場合<br>　　　◎→１、○→２、×→１　となります</li>
+				</ul>
+			</li>
+			<li><span>4．対戦回数内に◎が「４」になったプレイヤーの勝利となります</span><br>　　ただし同じ対戦回数の間に両プレイヤーの◎が「４」になる、<br>　　あるいは対戦回数内に当てられなかった場合は引き分けとなります</li>
+		<p><a href="top.html">戻る</a></p>
+		</ul>
+	</div>
+	
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script>
+	$(window).load(function(){
+		$(".setumei").animate({
+			opacity:'1',
+			height:'470px'
+		},400,function(){
+			$(".mainsetu").fadeIn("slow");
+		});
+	});
+	</script>
+</body>
+</html>

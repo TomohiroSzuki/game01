@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+	<html lang="ja">
+		<head>
+			<meta charset="utf-8">
+			<title>数当てゲーム</title>
+			<link rel="stylesheet" href="top.css">
+		</head>
+		<body onLoad="document.form.number1.focus()">
+			<h1>数当てゲーム</h1>
+			<div class="playerform">
+				<form action ="game.php" method="post" name="form" onsubmit="return check()">
+					<div class="player1">
+						<table>
+							<tr>
+								<th style="width:100px;">プレイヤー1</th>
+								<th><input type="text" class="p1" id="player1" name="player1" value="プレイヤー１"></th>
+							</tr>
+							<tr>
+								<th  style="width:100px;">数字</th>
+								<th>
+									<input type="password" class="p1" id="number1" name="number1" maxlength="4" value="">
+								</th>
+							</tr>
+							<tr>
+								<th style="width:100px;">数字（確認）</th>
+								<th><input type="password" class="p1" id="number11" name="number11" maxlength="4" value=""></th>
+							</tr>
+							<tr>
+								<th><input type="button" value="確認" onclick="kakunin('player1','number1','number11')"></th>
+								<th><input type="button" value="クリア" onclick="syoukyo('player1','number1','number11')"></th>
+							</tr>
+						</table>
+					</div>
+					<div class="player2">		
+						<table>
+							<tr>
+								<th style="width:100px;">プレイヤー2</th>
+								<th><input type="text" class="p2" id="player2" name="player2" value="プレイヤー２"></th>
+							</tr>
+							<tr>
+								<th style="width:100px;">数字</th>
+								<th><input type="password" class="p2" id="number2" name="number2" maxlength="4" value=""></th>
+							</tr>
+							<tr>
+								<th style="width:100px;">数字（確認）</th>
+								<th><input type="password" class="p2" id="number22" name="number22" maxlength="4" value=""></th>
+							</tr>
+							<tr>
+								<th><input type="button" value="確認" onclick="kakunin('player2','number2','number22')"></th>
+								<th><input type="button" value="クリア" onclick="syoukyo('player2','number2','number22')"></th>
+							</tr>
+						</table>
+					</div>
+					<table class="round">
+						<tr>
+							<th><span>対戦回数：</span></th>
+							<th><input type="number" name="round" value="5" min="1"></th>
+						</tr>
+					</table>
+					<div class="cpuflag">
+						<tr>
+							<th><span>CPU対戦：</span></th>
+							<td><input type="button" id="cpuflag" name="cpuflag" value="OFF" onclick="cpuFlag()"></td>
+						</tr>
+						<!-- <tr>
+							<th><input type="button" name="cpuflagbutton" value="CPU対戦" onclick="cpuFlag()" style="width:85px;"></th>
+							<td><input type="text" id="cpuflag" name="cpuflag" value="OFF" readonly  style="width:30px;background:none;border:none"></td>
+						</tr> -->
+					</div>
+					<div class="start">
+						<input type="button" name="sousin" value="ゲーム開始!!" onclick="kakuninfinal()">						
+					</div>
+				</form>
+				<p class="setumei">『数当てゲーム？おいしいの？』って方は<a href="rules.html">こちら</a></p>
+				<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+				<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+				<script src="top.js"></script>
+				<script>
+					// History API が使えるブラウザかどうかをチェック
+					if( window.history && window.history.pushState ){
+  					//ブラウザ履歴に１つ追加
+  						history.pushState( "nohb", null, "" );
+  						$(window).on( "popstate", function(event){
+    				//このページで「戻る」を実行
+    						if( !event.originalEvent.state ){
+					//もう一度履歴を操作して終了
+							history.pushState( "nohb", null, "" );
+							return;
+							}
+				  		});
+  					}
+  				</script>
+		</body>
+	</html>
+
+	<!--
+		8/7進捗
+			HTMLでのトップ画面作成
+			JavaScriptでの入力項目チェック
+			デバックモード
+			breakpoint
+
+		8/8進捗
+			HTMLでのトップ画面完了
+			JavaScriptでの入力項目チェック完了
+			PHPでの見た目ある程度できている
+			PHPの変数を用意途中
+			PHPの画面で新たに表の行を追加するやり方がわからない
+			array push で書き出し
+		8/11進捗
+			ゲームの流れができた
+			関数の統一
+			game.phpでの入力項目チェック
+
+
+			今日はプレイヤー２のほうにも固定を追加する
+	-->
